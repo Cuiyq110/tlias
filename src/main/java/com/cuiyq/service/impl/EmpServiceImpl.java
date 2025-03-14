@@ -1,5 +1,6 @@
 package com.cuiyq.service.impl;
 
+import com.cuiyq.service.EmpService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +13,6 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class EmpServiceImpl {
+public class EmpServiceImpl implements EmpService {
 
 }

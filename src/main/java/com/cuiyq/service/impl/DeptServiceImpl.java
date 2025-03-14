@@ -1,6 +1,12 @@
 package com.cuiyq.service.impl;
 
+import com.cuiyq.domain.Emp;
+import com.cuiyq.mapper.DeptMapper;
+import com.cuiyq.service.DeptService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @version V1.0
@@ -11,6 +17,18 @@ import org.springframework.stereotype.Service;
  * @date: 2025/3/14 21:23
  */
 @Service
-public class DeptServiceImpl {
+public class DeptServiceImpl implements DeptService {
 
+    @Resource
+    private DeptMapper deptMapper;
+    /**
+     * 查询所有部门
+     *
+     * @return
+     */
+    @Override
+    public List<Emp> list() {
+        deptMapper.list();
+        return deptMapper.list();
+    }
 }

@@ -1,5 +1,9 @@
 package com.cuiyq.service;
 
+import com.cuiyq.domain.Emp;
+
+import java.util.List;
+
 /**
  * @version V1.0
  * @Title:
@@ -10,4 +14,5 @@ package com.cuiyq.service;
  */
 
 public interface DeptService {
+    List<Emp> list();
 }
