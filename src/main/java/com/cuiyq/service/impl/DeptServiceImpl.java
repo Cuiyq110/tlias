@@ -1,5 +1,6 @@
 package com.cuiyq.service.impl;
 
+import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.Emp;
 import com.cuiyq.mapper.DeptMapper;
 import com.cuiyq.service.DeptService;
@@ -27,8 +28,19 @@ public class DeptServiceImpl implements DeptService {
      * @return
      */
     @Override
-    public List<Emp> list() {
-        deptMapper.list();
+    public List<Dept> list() {
+
         return deptMapper.list();
+    }
+
+    /**
+     * 根据id删除部门
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public Integer deleteDept(Integer id) {
+       return deptMapper.deleteDeptById(id);
     }
 }

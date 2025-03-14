@@ -1,5 +1,6 @@
 package com.cuiyq.mapper;
 
+import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.Emp;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,5 +18,7 @@ import java.util.List;
 public interface DeptMapper {
 
 
-    List<Emp> list();
+    List<Dept> list();
+
+    Integer deleteDeptById(Integer id);
 }

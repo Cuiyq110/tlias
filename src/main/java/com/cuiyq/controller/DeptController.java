@@ -1,10 +1,13 @@
 package com.cuiyq.controller;
 
+import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.Result;
 import com.cuiyq.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -32,8 +35,18 @@ public class DeptController {
     @GetMapping("/depts")
     public Result List() {
         log.info("查询部门列表");
-        List<Emp> list = deptService.list();
+        List<Dept> list = deptService.list();
 
         return Result.success(list);
+    }
+
+
+    @DeleteMapping("/depts/{id}")
+    public Result deleteDept(@PathVariable Integer id) {
+
+        Integer i = deptService.deleteDept(id);
+        log.info("删除结果：{}", i);
+        return Result.success();
+
     }
 }

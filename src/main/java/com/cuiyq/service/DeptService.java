@@ -1,7 +1,9 @@
 package com.cuiyq.service;
 
+import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.Emp;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,5 +16,7 @@ import java.util.List;
  */
 
 public interface DeptService {
-    List<Emp> list();
+    List<Dept> list();
+
+    Integer deleteDept(Integer id);
 }
