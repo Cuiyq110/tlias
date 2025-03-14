@@ -32,6 +32,7 @@ public class DeptController {
     public Result List() {
         log.info("查询部门列表");
         List<Emp> list = deptService.list();
+
         return Result.success(list);
     }
 }
