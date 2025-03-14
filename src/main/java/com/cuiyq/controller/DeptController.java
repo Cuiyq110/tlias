@@ -24,6 +24,7 @@ public class DeptController {
 
     @Resource
     private DeptService deptService;
+
     /**
      * 查询部门列表
      * @return
