@@ -19,4 +19,6 @@ public interface DeptService {
     List<Dept> list();
 
     Integer deleteDept(Integer id);
+
+    Integer addDept(Dept dept);
 }

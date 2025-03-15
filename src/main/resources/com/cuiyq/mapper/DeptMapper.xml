@@ -5,6 +5,11 @@
 <mapper namespace="com.cuiyq.mapper.DeptMapper">
 
 
+    <insert id="insert">
+        insert into dept(name,create_time,update_time) values (#{name},#{createTime},#{updateTime})
+    </insert>
+
+
     <delete id="deleteDeptById">
         delete from Dept where id = #{id}
     </delete>

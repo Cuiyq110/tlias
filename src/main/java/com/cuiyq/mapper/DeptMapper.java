@@ -21,4 +21,6 @@ public interface DeptMapper {
     List<Dept> list();
 
     Integer deleteDeptById(Integer id);
+
+    Integer insert(Dept dept);
 }

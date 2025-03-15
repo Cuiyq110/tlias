@@ -5,10 +5,7 @@ import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.Result;
 import com.cuiyq.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,6 +19,7 @@ import java.util.List;
  * @date: 2025/3/14 21:23
  */
 @Slf4j
+@RequestMapping("/depts")
 @RestController
 public class DeptController {
 
@@ -32,7 +30,7 @@ public class DeptController {
      * 查询部门列表
      * @return
      */
-    @GetMapping("/depts")
+    @GetMapping
     public Result List() {
         log.info("查询部门列表");
         List<Dept> list = deptService.list();
@@ -41,12 +39,19 @@ public class DeptController {
     }
 
 
-    @DeleteMapping("/depts/{id}")
+    @DeleteMapping("/{id}")
     public Result deleteDept(@PathVariable Integer id) {
 
         Integer i = deptService.deleteDept(id);
         log.info("删除结果：{}", i);
         return Result.success();
-
     }
+
+    @PostMapping
+    public Result addDept(@RequestBody Dept dept) {
+        log.info("新增部门：{}", dept);
+        deptService.addDept(dept);
+        return Result.success();
+    }
+
 }

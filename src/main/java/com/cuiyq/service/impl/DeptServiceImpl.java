@@ -7,6 +7,7 @@ import com.cuiyq.service.DeptService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -42,5 +43,19 @@ public class DeptServiceImpl implements DeptService {
     @Override
     public Integer deleteDept(Integer id) {
        return deptMapper.deleteDeptById(id);
+    }
+
+    /**
+     * 添加部门
+     * @param dept
+     * @return
+     */
+    @Override
+    public Integer addDept(Dept dept) {
+//        设置创建日期和更新日期
+        dept.setCreateTime(LocalDateTime.now());
+        dept.setUpdateTime(LocalDateTime.now());
+        Integer i = deptMapper.insert(dept);
+        return  i;
     }
 }
