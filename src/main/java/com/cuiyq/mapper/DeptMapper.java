@@ -25,4 +25,6 @@ public interface DeptMapper {
     Integer insert(Dept dept);
 
     Dept getDeptById(Integer id);
+
+    void updateDept(Dept dept);
 }

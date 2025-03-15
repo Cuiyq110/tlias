@@ -26,6 +26,13 @@ public class DeptController {
     @Resource
     private DeptService deptService;
 
+    @PutMapping
+    public Result updateDept(@RequestBody Dept dept) {
+        log.info("修改部门：{}", dept);
+        deptService.updateDept(dept);
+        return Result.success();
+    }
+
     /**
      * 查询部门列表
      * @return

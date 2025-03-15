@@ -11,6 +11,16 @@
     <insert id="insert">
         insert into dept(name,create_time,update_time) values (#{name},#{createTime},#{updateTime})
     </insert>
+    <update id="updateDept">
+        update dept
+        <set>
+            <if test="name != null">name = #{name},</if>
+        </set>
+            <where>
+                id = #{id}
+            </where>
+
+    </update>
 
 
     <delete id="deleteDeptById">
@@ -19,7 +29,7 @@
 
 
     <select id="list" resultType="com.cuiyq.domain.Dept">
-        <include refid="commonSelect" />
+        <include refid="commonSelect"/>
     </select>
     <select id="getDeptById" resultType="com.cuiyq.domain.Dept">
         <include refid="commonSelect"/>
