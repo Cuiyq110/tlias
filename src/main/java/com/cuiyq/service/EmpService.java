@@ -1,5 +1,8 @@
 package com.cuiyq.service;
 
+import com.cuiyq.domain.PageBean;
+import org.apache.ibatis.annotations.Param;
+
 /**
  * @version V1.0
  * @Title:
@@ -9,4 +12,5 @@ package com.cuiyq.service;
  * @date: 2025/3/14 21:22
  */
 public interface EmpService {
+    PageBean list(Integer page, Integer pageSize);
 }

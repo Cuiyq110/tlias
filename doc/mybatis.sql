@@ -60,3 +60,5 @@ INSERT INTO emp
 
 select id, name, create_time, update_time
 from dept;
+
+select * from emp limit 0,10;
