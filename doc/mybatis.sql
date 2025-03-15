@@ -58,3 +58,5 @@ INSERT INTO emp
 
 
 
+select id, name, create_time, update_time
+from dept;

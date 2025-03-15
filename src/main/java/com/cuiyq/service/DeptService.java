@@ -21,4 +21,6 @@ public interface DeptService {
     Integer deleteDept(Integer id);
 
     Integer addDept(Dept dept);
+
+    Dept getDeptById(Integer id);
 }

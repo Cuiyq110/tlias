@@ -23,4 +23,6 @@ public interface DeptMapper {
     Integer deleteDeptById(Integer id);
 
     Integer insert(Dept dept);
+
+    Dept getDeptById(Integer id);
 }

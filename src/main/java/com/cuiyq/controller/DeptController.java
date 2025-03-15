@@ -54,4 +54,11 @@ public class DeptController {
         return Result.success();
     }
 
+    @GetMapping("/{id}")
+    public Result getDept( @PathVariable Integer id) {
+        log.info("根据id查询部门：{}", id);
+       Dept dept =  deptService.getDeptById(id);
+        return Result.success(dept);
+    }
+
 }
