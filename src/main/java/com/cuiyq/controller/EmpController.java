@@ -1,5 +1,6 @@
 package com.cuiyq.controller;
 
+import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.PageBean;
 import com.cuiyq.domain.Result;
 import com.cuiyq.service.EmpService;
@@ -27,6 +28,19 @@ public class EmpController {
     @Resource
     private EmpService empService;
 
+
+    @PostMapping
+    public Result addEmp(@RequestBody Emp emp) {
+        log.info("新增员工，员工信息：{}", emp);
+        empService.addEmp(emp);
+        return Result.success();
+    }
+
+    /**
+     * 批量删除员工
+     * @param ids
+     * @return
+     */
     @DeleteMapping("/{ids}")
     public Result deleteEmp(@PathVariable Integer[] ids) {
 

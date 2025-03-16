@@ -1,5 +1,6 @@
 package com.cuiyq.service;
 
+import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.PageBean;
 
 import java.time.LocalDate;
@@ -21,4 +22,10 @@ public interface EmpService {
      * @param ids
      */
     void deleteEmp(Integer[] ids);
+
+    /**
+     * 添加员工
+     * @param emp
+     */
+    void addEmp(Emp emp);
 }

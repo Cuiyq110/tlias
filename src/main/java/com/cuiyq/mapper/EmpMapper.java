@@ -26,4 +26,6 @@ public interface EmpMapper {
     List<Emp> getList(@Param("name") String name, @Param("gender") Short gender,@Param("begin") LocalDate begin,@Param("end") LocalDate end);
 
     void deleteEmpByIds(@Param("ids") Integer[] ids);
+
+    void insert(Emp emp);
 }

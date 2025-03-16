@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -72,6 +73,19 @@ public class EmpServiceImpl implements EmpService {
     public void deleteEmp(Integer[] ids) {
 
         empMapper.deleteEmpByIds(ids);
+    }
+
+    /**
+     * 添加员工
+     * @param emp
+     */
+    @Override
+    public void addEmp(Emp emp) {
+//        修改添加时间和更新时间
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+
+        empMapper.insert(emp);
     }
 
 
