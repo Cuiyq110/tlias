@@ -5,13 +5,11 @@ import com.cuiyq.domain.Result;
 import com.cuiyq.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 /**
  * @version V1.0
@@ -23,15 +21,25 @@ import java.time.LocalDate;
  */
 @Slf4j
 @RestController
+@RequestMapping("/emps")
 public class EmpController {
 
     @Resource
     private EmpService empService;
+
+    @DeleteMapping("/{ids}")
+    public Result deleteEmp(@PathVariable Integer[] ids) {
+
+        log.info("删除员工：{}", Arrays.toString(ids));
+        empService.deleteEmp(ids);
+        return Result.success();
+    }
+
     /**
      * 获取员工列表
      * @return
      */
-    @GetMapping("/emps")
+    @GetMapping
     public Result list(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer pageSize,
                        String name, Short gender,

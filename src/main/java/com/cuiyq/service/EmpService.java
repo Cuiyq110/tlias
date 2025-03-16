@@ -15,4 +15,10 @@ import java.time.LocalDate;
 public interface EmpService {
 
     PageBean list(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end);
+
+    /**
+     * 删除员工
+     * @param ids
+     */
+    void deleteEmp(Integer[] ids);
 }
