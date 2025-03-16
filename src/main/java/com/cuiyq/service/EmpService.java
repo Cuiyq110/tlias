@@ -30,4 +30,6 @@ public interface EmpService {
     void addEmp(Emp emp);
 
     Emp getEmpById(Integer id);
+
+    void updateEmp(Emp emp);
 }

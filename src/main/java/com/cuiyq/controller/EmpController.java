@@ -28,6 +28,15 @@ public class EmpController {
     @Resource
     private EmpService empService;
 
+    /**
+     * 修改员工
+     */
+    @PutMapping
+    public Result updateEmp(@RequestBody Emp emp) {
+        log.info("修改员工，员工信息：{}", emp);
+        empService.updateEmp(emp);
+        return Result.success();
+    }
 
     /**
      * 根据id查询员工

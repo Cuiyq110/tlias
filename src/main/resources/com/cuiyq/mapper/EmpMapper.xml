@@ -11,6 +11,24 @@
         insert into emp(username,name,gender,image,job,entrydate,dept_id,create_time,update_time)
         values(#{username},#{name},#{gender},#{image},#{job},#{entrydate},#{deptId},#{createTime},#{updateTime})
     </insert>
+    <update id="updateEmp">
+        update emp
+        <set>
+            <if test="username != null and username != ''">username = #{username},</if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="name != null and name != '' ">name = #{name},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="image != null and image != ''">image = #{image},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="entrydate != null">entrydate = #{entrydate},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="job != null">job = #{job},</if>
+        </set>
+        where id = #{id}
+    </update>
+
     <delete id="deleteEmpByIds">
         delete from emp where id in
         <foreach collection="ids" open="(" close=")" separator="," item="id">
@@ -19,13 +37,13 @@
     </delete>
 
     <!--    <select id="getList" resultType="com.cuiyq.domain.Emp">-->
-<!--        select * from emp limit #{start}, #{pageSize}-->
-<!--    </select>-->
-<!--    <select id="count" resultType="java.lang.Integer">-->
-<!--        select count(*) from emp-->
-<!--    </select>-->
+    <!--        select * from emp limit #{start}, #{pageSize}-->
+    <!--    </select>-->
+    <!--    <select id="count" resultType="java.lang.Integer">-->
+    <!--        select count(*) from emp-->
+    <!--    </select>-->
 
-<!--    分页查询插件-->
+    <!--    分页查询插件-->
 
 
     <select id="getList" resultType="com.cuiyq.domain.Emp">
@@ -37,8 +55,8 @@
             <if test="gender != null">
                 and gender = #{gender}
             </if>
-            <if test="begin != null and begin != null" >
-              and entrydate between #{begin} and #{end}
+            <if test="begin != null and begin != null">
+                and entrydate between #{begin} and #{end}
             </if>
         </where>
         order by update_time desc
