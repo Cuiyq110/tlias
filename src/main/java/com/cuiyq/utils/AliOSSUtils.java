@@ -2,6 +2,7 @@ package com.cuiyq.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
@@ -13,10 +14,14 @@ import java.util.UUID;
 @Component
 public class AliOSSUtils {
 
-    private String endpoint = "https://oss-cn-beijing.aliyuncs.com";
-    private String accessKeyId = "LTAI5tErGUVxSpVhBeVemPPy";
-    private String accessKeySecret = "8MUBE057iTc26RSmOiHOWmGWNXzHBp";
-    private String bucketName = "webcuiyq";
+    @Value("${aliyun.oss.endpoint}")
+    private String endpoint ;
+    @Value("${aliyun.oss.accessKeyId}")
+    private String accessKeyId ;
+    @Value("${aliyun.oss.accessKeySecret}")
+    private String accessKeySecret ;
+    @Value("${aliyun.oss.bucketName}")
+    private String bucketName ;
 
     /**
      * 实现上传图片到OSS
