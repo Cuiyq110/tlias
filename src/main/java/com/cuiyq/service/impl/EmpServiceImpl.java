@@ -4,6 +4,8 @@ import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.PageBean;
 import com.cuiyq.mapper.EmpMapper;
 import com.cuiyq.service.EmpService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -32,16 +34,28 @@ public class EmpServiceImpl implements EmpService {
      * @param pageSize
      * @return
      */
+//    @Override
+//    public PageBean list(Integer page, Integer pageSize) {
+//
+////        返回查询列表
+//        Integer start = (page - 1) * pageSize;
+//
+//        List<Emp> list = empMapper.getList(start, pageSize);
+////        list.forEach(System.out::println);
+//        Integer total = empMapper.count();
+//        PageBean pageBean = new PageBean(total, list);
+//        return pageBean;
+//    }
+
     @Override
     public PageBean list(Integer page, Integer pageSize) {
+         PageHelper.startPage(page, pageSize);
+        List<Emp> list = empMapper.getList();
+        Page<Emp> empPage = (Page<Emp>) list;
 
-//        返回查询列表
-        Integer start = (page - 1) * pageSize;
-
-        List<Emp> list = empMapper.getList(start, pageSize);
-//        list.forEach(System.out::println);
-        Integer total = empMapper.count();
-        PageBean pageBean = new PageBean(total, list);
+        PageBean pageBean = new PageBean(empPage.getTotal(),empPage.getResult());
         return pageBean;
     }
+
+
 }

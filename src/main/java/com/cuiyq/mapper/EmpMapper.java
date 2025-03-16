@@ -18,7 +18,10 @@ import java.util.List;
 @Mapper
 public interface EmpMapper {
 
-    List<Emp> getList(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
+//    List<Emp> getList(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
+//
+//    Integer count();
 
-    Integer count();
+//    分页查询使用插件
+    List<Emp> getList();
 }

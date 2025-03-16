@@ -4,11 +4,17 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cuiyq.mapper.EmpMapper">
 
-    <select id="getList" resultType="com.cuiyq.domain.Emp">
-        select * from emp limit #{start}, #{pageSize}
-    </select>
-    <select id="count" resultType="java.lang.Integer">
-        select count(*) from emp
-    </select>
+<!--    <select id="getList" resultType="com.cuiyq.domain.Emp">-->
+<!--        select * from emp limit #{start}, #{pageSize}-->
+<!--    </select>-->
+<!--    <select id="count" resultType="java.lang.Integer">-->
+<!--        select count(*) from emp-->
+<!--    </select>-->
 
+<!--    分页查询插件-->
+
+
+    <select id="getList" resultType="com.cuiyq.domain.Emp">
+        select * from emp
+    </select>
 </mapper>
