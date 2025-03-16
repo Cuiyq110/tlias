@@ -4,7 +4,7 @@ import com.cuiyq.domain.Emp;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import javax.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -23,5 +23,5 @@ public interface EmpMapper {
 //    Integer count();
 
 //    分页查询使用插件
-    List<Emp> getList();
+    List<Emp> getList(@Param("name") String name, @Param("gender") Short gender,@Param("begin") LocalDate begin,@Param("end") LocalDate end);
 }

@@ -1,7 +1,8 @@
 package com.cuiyq.service;
 
 import com.cuiyq.domain.PageBean;
-import org.apache.ibatis.annotations.Param;
+
+import java.time.LocalDate;
 
 /**
  * @version V1.0
@@ -12,5 +13,6 @@ import org.apache.ibatis.annotations.Param;
  * @date: 2025/3/14 21:22
  */
 public interface EmpService {
-    PageBean list(Integer page, Integer pageSize);
+
+    PageBean list(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end);
 }

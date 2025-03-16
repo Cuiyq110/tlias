@@ -16,5 +16,17 @@
 
     <select id="getList" resultType="com.cuiyq.domain.Emp">
         select * from emp
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="begin != null and begin != null" >
+              and entrydate between #{begin} and #{end}
+            </if>
+
+        </where>
     </select>
 </mapper>
