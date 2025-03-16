@@ -28,4 +28,6 @@ public interface EmpService {
      * @param emp
      */
     void addEmp(Emp emp);
+
+    Emp getEmpById(Integer id);
 }

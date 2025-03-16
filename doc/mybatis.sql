@@ -62,3 +62,5 @@ select id, name, create_time, update_time
 from dept;
 
 select * from emp limit 0,10;
+
+select id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time from emp

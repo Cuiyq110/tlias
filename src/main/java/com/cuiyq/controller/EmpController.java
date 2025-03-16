@@ -29,6 +29,19 @@ public class EmpController {
     private EmpService empService;
 
 
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result getEmp(@PathVariable Integer id) {
+        log.info("根据id查询员工，员工信息：{}", id);
+        Emp empById = empService.getEmpById(id);
+        return Result.success(empById);
+    }
+
+
     @PostMapping
     public Result addEmp(@RequestBody Emp emp) {
         log.info("新增员工，员工信息：{}", emp);

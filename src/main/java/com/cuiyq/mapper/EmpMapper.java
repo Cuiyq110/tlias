@@ -28,4 +28,6 @@ public interface EmpMapper {
     void deleteEmpByIds(@Param("ids") Integer[] ids);
 
     void insert(Emp emp);
+
+    Emp getEmpById(Integer id);
 }
