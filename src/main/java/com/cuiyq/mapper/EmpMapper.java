@@ -32,4 +32,7 @@ public interface EmpMapper {
     Emp getEmpById(Integer id);
 
     void updateEmp(Emp emp);
+
+//    根据username 和 password 查询
+    Emp selectByUsernameAndPassword(Emp emp);
 }

@@ -113,5 +113,12 @@ public class EmpServiceImpl implements EmpService {
 
     }
 
+    @Override
+    public Emp login(Emp emp) {
+        Emp emp1 = empMapper.selectByUsernameAndPassword(emp);
+        return emp1;
+
+    }
+
 
 }

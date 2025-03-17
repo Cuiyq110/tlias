@@ -32,4 +32,6 @@ public interface EmpService {
     Emp getEmpById(Integer id);
 
     void updateEmp(Emp emp);
+
+    Emp login(Emp emp);
 }

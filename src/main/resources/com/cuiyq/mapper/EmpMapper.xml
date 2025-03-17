@@ -65,5 +65,9 @@
         <include refid="commonSelect"/>
         where id = #{id}
     </select>
+    <select id="selectByUsernameAndPassword" resultType="com.cuiyq.domain.Emp">
+        <include refid="commonSelect"/>
+        where username = #{username} and password = #{password}
+    </select>
 
 </mapper>
