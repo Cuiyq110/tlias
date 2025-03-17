@@ -4,6 +4,7 @@ aliyun:
         accessKeySecret: 8MUBE057iTc26RSmOiHOWmGWNXzHBp
         bucketName: webcuiyq
         endpoint: https://oss-cn-beijing.aliyuncs.com
+
 mybatis:
     configuration:
         log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

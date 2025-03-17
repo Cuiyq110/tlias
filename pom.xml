@@ -15,6 +15,12 @@
     </properties>
     <dependencies>
 
+        <!--        配置文件依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
         <!--      阿里云oss  -->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
@@ -37,7 +43,6 @@
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.3</version>
         </dependency>
-
 
 
         <!--        分页查询插件-->
