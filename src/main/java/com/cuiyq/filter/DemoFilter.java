@@ -12,7 +12,7 @@ import java.io.IOException;
  * @author: Cuiyq
  * @date: 2025/3/17 16:46
  */
-@WebFilter(urlPatterns = "/*")
+//@WebFilter(urlPatterns = "/*")
 public class DemoFilter implements Filter {
 
     @Override
