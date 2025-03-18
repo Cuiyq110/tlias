@@ -3,8 +3,11 @@ package com.cuiyq.service.impl;
 import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.Emp;
 import com.cuiyq.mapper.DeptMapper;
+import com.cuiyq.mapper.EmpMapper;
 import com.cuiyq.service.DeptService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
@@ -18,11 +21,15 @@ import java.util.List;
  * @author: Cuiyq
  * @date: 2025/3/14 21:23
  */
+@Slf4j
 @Service
 public class DeptServiceImpl implements DeptService {
 
     @Resource
     private DeptMapper deptMapper;
+
+    @Resource
+    private EmpMapper  empMapper;
     /**
      * 查询所有部门
      *
@@ -36,13 +43,22 @@ public class DeptServiceImpl implements DeptService {
 
     /**
      * 根据id删除部门
-     *
+     * 解散部门删除员工
      * @param id
      * @return
      */
+    @Transactional
     @Override
     public Integer deleteDept(Integer id) {
-       return deptMapper.deleteDeptById(id);
+
+
+        Integer i = deptMapper.deleteDeptById(id);
+//        int ai = 1 / 0;
+//        根据部门删除员工
+        Integer emp = empMapper.deleteEmpByDeptId(id);
+        log.info("删除结果：{}", emp);
+        return i;
+
     }
 
     /**

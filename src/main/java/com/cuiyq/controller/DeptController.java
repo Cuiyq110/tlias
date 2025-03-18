@@ -46,6 +46,11 @@ public class DeptController {
     }
 
 
+    /**
+     * 根据id删除部门
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}")
     public Result deleteDept(@PathVariable Integer id) {
 

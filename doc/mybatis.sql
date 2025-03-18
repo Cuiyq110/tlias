@@ -64,3 +64,16 @@ from dept;
 select * from emp limit 0,10;
 
 select id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time from emp
+
+INSERT INTO emp (id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time)
+VALUES
+    (37, 'emp001', '123456', '陈晓', 1, 'default.jpg', 2, '2025-04-01', 6, NOW(), NOW()),
+    (38, 'emp002', '123456', '林娜', 2, 'default.jpg', 2, '2025-04-02', 6, NOW(), NOW()),
+    (39, 'emp003', '123456', '王浩', 1, 'default.jpg', 2, '2025-04-03', 6, NOW(), NOW()),
+    (40, 'emp004', '123456', '赵敏', 2, 'default.jpg', 2, '2025-04-04', 6, NOW(), NOW()),
+    (41, 'emp005', '123456', '张强', 1, 'default.jpg', 2, '2025-04-05', 6, NOW(), NOW()),
+    (42, 'emp006', '123456', '李雪', 2, 'default.jpg', 2, '2025-04-06', 6, NOW(), NOW()),
+    (43, 'emp007', '123456', '周杰', 1, 'default.jpg', 2, '2025-04-07', 6, NOW(), NOW()),
+    (44, 'emp008', '123456', '吴婷', 2, 'default.jpg', 2, '2025-04-08', 6, NOW(), NOW()),
+    (45, 'emp009', '123456', '郑宇', 1, 'default.jpg', 2, '2025-04-09', 6, NOW(), NOW()),
+    (46, 'emp010', '123456', '孙莉', 2, 'default.jpg', 2, '2025-04-10', 6, NOW(), NOW());

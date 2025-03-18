@@ -35,4 +35,6 @@ public interface EmpMapper {
 
 //    根据username 和 password 查询
     Emp selectByUsernameAndPassword(Emp emp);
+
+    Integer deleteEmpByDeptId(Integer id);
 }

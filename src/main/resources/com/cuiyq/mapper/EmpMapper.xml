@@ -35,6 +35,9 @@
             #{id}
         </foreach>
     </delete>
+    <delete id="deleteEmpByDeptId">
+        delete from emp where dept_id = #{deptId}
+    </delete>
 
     <!--    <select id="getList" resultType="com.cuiyq.domain.Emp">-->
     <!--        select * from emp limit #{start}, #{pageSize}-->
