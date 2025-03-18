@@ -18,7 +18,7 @@ import java.util.List;
 public interface DeptService {
     List<Dept> list();
 
-    Integer deleteDept(Integer id);
+    Integer deleteDept(Integer id) throws Exception;
 
     Integer addDept(Dept dept);
 

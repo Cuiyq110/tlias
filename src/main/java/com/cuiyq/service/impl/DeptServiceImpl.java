@@ -1,6 +1,7 @@
 package com.cuiyq.service.impl;
 
 import com.cuiyq.domain.Dept;
+import com.cuiyq.domain.DeptLog;
 import com.cuiyq.domain.Emp;
 import com.cuiyq.mapper.DeptMapper;
 import com.cuiyq.mapper.EmpMapper;
@@ -29,7 +30,11 @@ public class DeptServiceImpl implements DeptService {
     private DeptMapper deptMapper;
 
     @Resource
-    private EmpMapper  empMapper;
+    private EmpMapper empMapper;
+
+    @Resource
+    private DeptLogServiceImpl deptLogService;
+
     /**
      * 查询所有部门
      *
@@ -44,25 +49,41 @@ public class DeptServiceImpl implements DeptService {
     /**
      * 根据id删除部门
      * 解散部门删除员工
+     *
      * @param id
      * @return
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
-    public Integer deleteDept(Integer id) {
+    public Integer deleteDept(Integer id) throws Exception {
 
+        Integer i = null;
+        try {
+            i = deptMapper.deleteDeptById(id);
 
-        Integer i = deptMapper.deleteDeptById(id);
-//        int ai = 1 / 0;
-//        根据部门删除员工
-        Integer emp = empMapper.deleteEmpByDeptId(id);
-        log.info("删除结果：{}", emp);
+            //模拟：异常发生
+            if (true) {
+                throw new Exception("出现异常了~~~");
+            }
+
+            //        int ai = 1 / 0;
+            //        根据部门删除员工
+            Integer emp = empMapper.deleteEmpByDeptId(id);
+            log.info("删除结果：{}", emp);
+
+        } finally {
+            DeptLog deptLog = new DeptLog();
+            deptLog.setCreateTime(LocalDateTime.now());
+            deptLog.setDescription("执行了解散部门的操作，此时解散的是" + id + "号部门");
+            deptLogService.insert(deptLog);
+        }
         return i;
 
     }
 
     /**
      * 添加部门
+     *
      * @param dept
      * @return
      */
@@ -72,13 +93,13 @@ public class DeptServiceImpl implements DeptService {
         dept.setCreateTime(LocalDateTime.now());
         dept.setUpdateTime(LocalDateTime.now());
         Integer i = deptMapper.insert(dept);
-        return  i;
+        return i;
     }
 
     @Override
     public Dept getDeptById(Integer id) {
-      Dept dept = deptMapper.getDeptById(id);
-      return dept;
+        Dept dept = deptMapper.getDeptById(id);
+        return dept;
     }
 
     @Override

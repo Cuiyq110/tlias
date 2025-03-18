@@ -63,7 +63,7 @@ from dept;
 
 select * from emp limit 0,10;
 
-select id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time from emp
+select id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time from emp;
 
 INSERT INTO emp (id, username, password, name, gender, image, job, entrydate, dept_id, create_time, update_time)
 VALUES
@@ -77,3 +77,13 @@ VALUES
     (44, 'emp008', '123456', '吴婷', 2, 'default.jpg', 2, '2025-04-08', 6, NOW(), NOW()),
     (45, 'emp009', '123456', '郑宇', 1, 'default.jpg', 2, '2025-04-09', 6, NOW(), NOW()),
     (46, 'emp010', '123456', '孙莉', 2, 'default.jpg', 2, '2025-04-10', 6, NOW(), NOW());
+
+
+
+# 创建事务记录表
+create table dept_log(
+                         id int auto_increment comment '主键ID' primary key,
+                         create_time datetime null comment '操作时间',
+                         description varchar(300) null comment '操作描述'
+)comment '部门操作日志表';
+
