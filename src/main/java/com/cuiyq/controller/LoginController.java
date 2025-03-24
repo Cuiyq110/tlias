@@ -4,6 +4,7 @@ import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.Result;
 import com.cuiyq.service.EmpService;
 import com.cuiyq.utils.JwtUtils;
+import io.jsonwebtoken.Jwt;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,6 @@ public class LoginController {
 //        接收返回的员工信息
         Emp e = empService.login(emp);
        if (e != null) {
-//           存储到token中
            Map<String, Object> claims = new HashMap<>();
            claims.put("id", e.getId());
            claims.put("username", e.getUsername());
