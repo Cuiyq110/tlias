@@ -1,7 +1,7 @@
 package com.cuiyq.controller;
 
+import com.cuiyq.anno.Log;
 import com.cuiyq.domain.Dept;
-import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.Result;
 import com.cuiyq.service.DeptService;
 import lombok.extern.slf4j.Slf4j;

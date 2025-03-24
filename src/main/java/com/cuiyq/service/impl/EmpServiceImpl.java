@@ -1,5 +1,6 @@
 package com.cuiyq.service.impl;
 
+import com.cuiyq.anno.Log;
 import com.cuiyq.domain.Emp;
 import com.cuiyq.domain.PageBean;
 import com.cuiyq.mapper.EmpMapper;
@@ -113,6 +114,11 @@ public class EmpServiceImpl implements EmpService {
 
     }
 
+    /**
+     * 登录,返回一个员工对象
+     * @param emp
+     * @return
+     */
     @Override
     public Emp login(Emp emp) {
         Emp emp1 = empMapper.selectByUsernameAndPassword(emp);

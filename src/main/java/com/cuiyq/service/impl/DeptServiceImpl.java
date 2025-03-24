@@ -1,5 +1,6 @@
 package com.cuiyq.service.impl;
 
+import com.cuiyq.anno.Log;
 import com.cuiyq.domain.Dept;
 import com.cuiyq.domain.DeptLog;
 import com.cuiyq.domain.Emp;
@@ -41,6 +42,7 @@ public class DeptServiceImpl implements DeptService {
      * @return
      */
     @Override
+    @Log
     public List<Dept> list() {
 
         return deptMapper.list();
@@ -87,6 +89,7 @@ public class DeptServiceImpl implements DeptService {
      * @param dept
      * @return
      */
+    @Log
     @Override
     public Integer addDept(Dept dept) {
 //        设置创建日期和更新日期
